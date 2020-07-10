@@ -10,6 +10,8 @@ const toDoReduser = (state = [obj], actions) => {
     case types.ADD_TODO:
       return [...state, actions.payload.todo];
 
+    case types.DELETE_TODO:
+      return state.filter((item) => item.id !== actions.payload.todo.id);
     default:
       return state;
   }
